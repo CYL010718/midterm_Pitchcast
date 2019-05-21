@@ -463,7 +463,7 @@ class Game extends Component{
         ))
         let gamePlayer = playingPitcherName.map((i,index) => (
             <NavLink to = "/home" style = {{border:"0px"}} key = {index}>
-                <button  style = {{border:'none',fontWeight:'200'}} onClick = {this.handlePlayerResult} name = {i} id = {playingPitcherNum[index]}> #{playingPitcherNum[index]} {i} </button>
+                <button  style = {{color:"black", opacity:'0.5', border:'none',fontWeight:'200'}} onClick = {this.handlePlayerResult} name = {i} id = {playingPitcherNum[index]}> #{playingPitcherNum[index]} {i} </button>
             </NavLink>   
         ))
         let pastRecord = record.map((i,index) => (
