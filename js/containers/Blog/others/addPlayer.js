@@ -13,10 +13,7 @@ class addPlayer extends Component{
     handleconfirm = event => {
             let name = document.getElementById("name_input").value;
             let number = document.getElementById("number_input").value;
-            let image = document.querySelector("#image_input").files;
-            let form = new FormData();
-            form.append("product[photos][]", image[0]);
-            console.log(form);
+            //console.log(form);
             fetch('/input',{
                 method: 'POST',
                 headers: {
@@ -74,13 +71,6 @@ class addPlayer extends Component{
                             <h4 className = "input_title">
                                 Enter Player Number: 
                                 <input placeholder = "Number" id = "number_input"/>
-                            </h4>
-                            
-                        </span>
-                        <span>
-                            <h4 className = "input_title">
-                                Upload Player Image: 
-                                <input type = 'file' accept = ".png, .jpg, .jpeg" placeholder = "Image" id = "image_input"/>
                             </h4>
                             
                         </span>

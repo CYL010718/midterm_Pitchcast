@@ -12,8 +12,9 @@ const InfoSchema = new Schema({
 		required: [true, 'Number field is required.']
 	},
 	img: {
-		data:Buffer,
-		contentType: String
+		type: Number,
+		default: 0,
+		required: [true]
 	},
 	Career:{
 		

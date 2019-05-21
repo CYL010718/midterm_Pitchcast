@@ -21,7 +21,7 @@ class players extends Component{
             })
 
         })
-        console.log('delete')
+       // console.log('delete')
         this.props.handleGetList();
     }
 
@@ -60,7 +60,7 @@ class players extends Component{
         return(
             <div>
                 <section className = "wrapper style3 container special"  style = {{width:"64.3em"}}>
-                    <img src = {require(`../../../images/Wacha.jpg`)}/>
+                    <img style = {{width:'20em',height: '23em',opacity:'0.5'}} src = {require(`../../../images/pitcher${this.props.location.data.img}.png`)}/>
                     <header>
                         <h3>  
                             #{number} {name}

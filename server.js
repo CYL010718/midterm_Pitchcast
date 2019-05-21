@@ -59,7 +59,8 @@ db.once('open', () => {
     app.post('/input',function(req,res){
         let name = req.body.name;
         let number = req.body.number;
-        console.log(req.body.image)
+        let img = Math.floor(Math.random()*4)
+        //console.log(req.body.image)
         if (name === '' || number === ''){
             res.send('fail')
             //console.log('hi')
@@ -72,15 +73,7 @@ db.once('open', () => {
                 }
                 else if(!doc.length){
                 
-                    let playerinfo = new Info({name,number})
-                   /* if(req.body.image === ''){
-                        playerinfo.img.data = fs.readFileSync('./js/images/player.jpg')
-                        playerinfo.img.contentType = 'image/jpg';
-                    }
-                    else{
-                        playerinfo.img.data = req.body.image;
-                        playerinfo.img.contentType = 'image/jpg';
-                    }*/
+                    let playerinfo = new Info({name,number,img})
                     playerinfo.save(err => {
                         if (err) console.error(err)
 
@@ -100,7 +93,7 @@ db.once('open', () => {
             'number':req.body.number
         })
         .catch(err => console.log(err));
-        console.log('delete!')
+        //console.log('delete!')
     })
 
     app.get("/getPlayer/:number/:name",function(req,res){
@@ -109,7 +102,7 @@ db.once('open', () => {
             'name': req.params.name,
             'number': req.params.number
         })
-        .select('Career LastGame')
+        .select('Career LastGame img')
         .exec((err, doc) => {
             if (err) throw err
             res.send(doc)

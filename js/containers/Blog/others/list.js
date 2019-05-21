@@ -37,7 +37,7 @@ class List extends Component{
          //console.log();
          let list = [];
          for (let i = 0; i < this.state.length; i++){
-            list.push ( <Homeplayer Name = {this.state.data[i].name} Number = {this.state.data[i].number} key = {i}></Homeplayer>)
+            list.push ( <Homeplayer Name = {this.state.data[i].name} Number = {this.state.data[i].number} Img = {this.state.data[i].img} key = {i}></Homeplayer>)
          }
         // const list = name.map((i,index) => <Homeplayer Name = {i} Number = {number[index]} key = {index}></Homeplayer>)
          

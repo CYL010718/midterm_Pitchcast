@@ -24,44 +24,30 @@ class HomePlayer extends Component{
          })
          .catch((err) => console.log('Error :', err));
 
-        /* fetch(`/getimg/${this.props.Number}/${this.props.Name}`,{
-            method: 'GET',
-         }).then(res => res.json())
-            // console.log(res.clone().json());)
-         .then(data => {
-             //PlayerData = data;
-             this.updatePlayer(data)
-            // console.log(data);
-         })
-         .catch((err) => console.log('Error :', err));*/
     }
     
     updatePlayer = (data) => {
        
-       /* reader.onload = function(){
-            var output = document.getElementById('imagePreview');
-            output.src = reader.result;
-          };
-        reader.readAsDataURL(data.img.data);*/
+       
         this.setState(state => ({
             PlayerData: data,
         }))
-        //console.log(data.img)
 
 
      }
     render(){
         return(
-            <section>
-                <img src =  {require(`../images/player.jpg`)}/>
-                <header>
-                    <h3>
-                        <NavLink to = {{
-                            pathname: `players/${this.props.Number}/${this.props.Name}`,
-                            data: this.state.PlayerData}}> #{this.props.Number} {this.props.Name}</NavLink>
-                    </h3>
-                </header>
-            </section>
+            <div style = {{margin:'5em',borderTop:'0.1em solid', borderBottom: '0.1em solid',borderColor:'rgba(0,0,0,0.1)'}}> 
+                <NavLink to = {{pathname: `players/${this.props.Number}/${this.props.Name}`,
+                                data: this.state.PlayerData}} style = {{border:"0px"}}>
+                    <img src =  {require(`../images/pitcher${this.props.Img}.png`)} style = {{width:'20em',height: '23em',opacity:'0.5'}}/>
+                    <header>
+                        <h3 style = {{color:'black',opacity:'0.5', border: '0px'}}>
+                            #{this.props.Number} {this.props.Name}
+                        </h3>
+                    </header>
+                </NavLink>
+            </div>
         )
     }
 }
