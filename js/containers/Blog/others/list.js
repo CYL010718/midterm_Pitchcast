@@ -33,13 +33,10 @@ class List extends Component{
    
    
     render(){
-        //console.log(this.props.name)
-         //console.log();
          let list = [];
          for (let i = 0; i < this.state.length; i++){
             list.push ( <Homeplayer Name = {this.state.data[i].name} Number = {this.state.data[i].number} Img = {this.state.data[i].img} key = {i}></Homeplayer>)
          }
-        // const list = name.map((i,index) => <Homeplayer Name = {i} Number = {number[index]} key = {index}></Homeplayer>)
          
          return(
             <div>
@@ -55,30 +52,6 @@ class List extends Component{
         )
      
     }
-    /* updateList = data => {
-        PlayerName = [];
-        PlayerNumber = [];
-        for (let x = 0; x < data.length; x++) {
-            PlayerName.push(data[x].name);
-            PlayerNumber.push(data[x].number);
-        }
-    }
-    componentWillMount(){
-        console.log('mount');
-        fetch('/init',{
-            method: 'GET',
-         }).then(res => res.json())
-         .then(data => {
-            for (let x = 0; x < data.length; x++) {
-                this.setState(state => ({
-                    PlayerName: state.PlayerName.push(data[x].name),
-                    PlayerNumber: state.PlayerNumber.push(data[x].number)
-                }))
-                
-            }
-         })
-         .catch((err) => console.log('Error :', err));
-    }*/
 }
 
 export default List;

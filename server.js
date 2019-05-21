@@ -60,10 +60,8 @@ db.once('open', () => {
         let name = req.body.name;
         let number = req.body.number;
         let img = Math.floor(Math.random()*4)
-        //console.log(req.body.image)
         if (name === '' || number === ''){
             res.send('fail')
-            //console.log('hi')
         }
         else{
             let query = Info.find({'number': number})
@@ -81,7 +79,6 @@ db.once('open', () => {
                     })
                 }
                 else{
-                    //console.log(res);
                     res.send('numberUsed')
                 }
             })
@@ -93,11 +90,9 @@ db.once('open', () => {
             'number':req.body.number
         })
         .catch(err => console.log(err));
-        //console.log('delete!')
     })
 
     app.get("/getPlayer/:number/:name",function(req,res){
-       // console.log(req.params.name)
         Info.findOne({
             'name': req.params.name,
             'number': req.params.number
@@ -106,25 +101,10 @@ db.once('open', () => {
         .exec((err, doc) => {
             if (err) throw err
             res.send(doc)
-            //console.log(doc);
         })
     })
- /*  app.get("/getimg/:number/:name",function(req,res){
-        // console.log(req.params.name)
-         Info.findOne({
-             'name': req.params.name,
-             'number': req.params.number
-         })
-         .select('img')
-         .exec((err, doc) => {
-             if (err) throw err
-             res.send(doc)
-             //console.log(doc);
-         })
-     })*/
 
     app.patch("/updateData",function(req,res){
-       //console.log(req.body.name)
         Info.findOneAndUpdate(
             {
                 'name': req.body.name,
@@ -155,15 +135,12 @@ db.once('open', () => {
                 if(err){
                     console.log('err');
                 }
-               // console.log(doc)
             }
         )
     })
     app.patch("/updateWL",function(req,res){
-         //console.log(req.body.result)
 
           if(req.body.result === 'W'){
-              //console.log('hi')
             Info.findOneAndUpdate(
                 {
                     'name': req.body.name,
@@ -183,7 +160,6 @@ db.once('open', () => {
                     if(err){
                         console.log('err');
                     }
-                   // console.log(doc)
                 }
             )
           }
@@ -205,7 +181,6 @@ db.once('open', () => {
                     if(err){
                         console.log('err');
                     }
-                   // console.log(doc)
                 }
             )
           }

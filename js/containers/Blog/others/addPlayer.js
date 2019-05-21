@@ -13,7 +13,6 @@ class addPlayer extends Component{
     handleconfirm = event => {
             let name = document.getElementById("name_input").value;
             let number = document.getElementById("number_input").value;
-            //console.log(form);
             fetch('/input',{
                 method: 'POST',
                 headers: {
@@ -26,7 +25,6 @@ class addPlayer extends Component{
                 })
 
             }).then(res => {
-              // console.log(res);
                return res.text();
             })
             .then(text => {

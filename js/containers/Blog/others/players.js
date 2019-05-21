@@ -21,7 +21,6 @@ class players extends Component{
             })
 
         })
-       // console.log('delete')
         this.props.handleGetList();
     }
 

@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import "./HomePlayer.css";
 import {NavLink} from "react-router-dom"
-const Filereader = require('filereader')
-const reader = new Filereader();
-//export default ({Name, Number}) => {
 class HomePlayer extends Component{
     constructor(props){
         super(props);
@@ -16,24 +12,17 @@ class HomePlayer extends Component{
         fetch(`/getPlayer/${this.props.Number}/${this.props.Name}`,{
             method: 'GET',
          }).then(res => res.json())
-            // console.log(res.clone().json());)
          .then(data => {
-             //PlayerData = data;
              this.updatePlayer(data)
-            // console.log(data);
          })
          .catch((err) => console.log('Error :', err));
 
     }
     
     updatePlayer = (data) => {
-       
-       
         this.setState(state => ({
             PlayerData: data,
         }))
-
-
      }
     render(){
         return(

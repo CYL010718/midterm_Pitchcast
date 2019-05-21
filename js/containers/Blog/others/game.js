@@ -249,8 +249,6 @@ class Game extends Component{
             ERA: Math.round((state.CareerR)/((state.CareerIP+(1/3))/9)*100)/100,
             CareerIP: state.CareerIP+(1/3)
         }))
-       /* console.log(this.state.CareerR)
-        console.log (this.state.CareerR)/((this.state.CareerIP+(1/3))/9);*/
         
     }
     handleRun = () => {
@@ -347,8 +345,6 @@ class Game extends Component{
         })) 
         this.changePlayerReset();
         
-        console.log(number)
-        console.log(name)
         fetch(`/getPlayer/${number}/${name}`,{
             method: 'GET',
         }).then(res => res.json())
